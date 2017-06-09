@@ -1,4 +1,3 @@
-import java.util.Date;
 import java.util.Scanner;
 
 /**
@@ -18,18 +17,26 @@ public class MainClass {
         Scanner scanner = new Scanner(System.in);
         int var;
 
-        do {
+       // do {
             System.out.println("Wybierz walutę spośród możliwych ");
             var = scanner.nextInt();
             System.out.println("Podaj datę początkową");
-            Date temp = new Date();
             System.out.println("Dzień: ");
-            temp.se
+            dfu.setStartDateDay(scanner.nextInt());
+            System.out.println("Miesiąc: ");
+            dfu.setStartDateMonth(scanner.nextInt());
+            System.out.println("Rok: ");
+            dfu.setStartDateYear(scanner.nextInt());
+            System.out.println("Podaj datę końcową ");
+            System.out.println("Dzień: ");
+            dfu.setEndDateDay(scanner.nextInt());
+            System.out.println("Miesiąc: ");
+            dfu.setEndDateMonth(scanner.nextInt());
+            System.out.println("Rok: ");
+            dfu.setEndDateYear(scanner.nextInt());
+        //}brak walidacji danych
+       // while (true); //(var == 1 || var == 2 || var == 3 || var == 4) && day <= 31 && day >= 1 && endDay <= 31 && endDay >=1 );
 
-
-
-        }
-        while (var != 1 && var != 2 && var != 3 && var != 4);
         switch (var) {
             case (1): {
                 System.out.println("Wybrano USD");
@@ -51,8 +58,7 @@ public class MainClass {
                 System.out.println("Wybierz raz jeszcze ");
                 break;
             }
-
-
         }
+
     }
 }
