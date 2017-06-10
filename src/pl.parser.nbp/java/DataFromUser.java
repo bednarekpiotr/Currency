@@ -3,61 +3,63 @@
  */
 public class DataFromUser {
 
-    private int startDateDay;
-    private int endDateDay;
-    private int startDateMonth;
-    private int endDateMonth;
-    private int startDateYear;
-    private int endDateYear;
+    private String startDateDay;
+    private String endDateDay;
+    private String startDateMonth;
+    private String endDateMonth;
+    private String startDateYear;
+    private String endDateYear;
     private String currency;
 
-    public int getStartDateDay() {
+    public String getStartDateDay() {
         return startDateDay;
     }
 
-    public void setStartDateDay(int startDateDay) {
+    public void setStartDateDay(String startDateDay) {
         this.startDateDay = startDateDay;
     }
 
-    public int getEndDateDay() {
+    public String getEndDateDay() {
         return endDateDay;
     }
 
-    public void setEndDateDay(int endDateDay) {
+    public void setEndDateDay(String endDateDay) {
         this.endDateDay = endDateDay;
     }
 
-    public int getStartDateMonth() {
+    public String getStartDateMonth() {
         return startDateMonth;
     }
 
-    public void setStartDateMonth(int startDateMonth) {
+    public void setStartDateMonth(String startDateMonth) {
         this.startDateMonth = startDateMonth;
     }
 
-    public int getEndDateMonth() {
+    public String getEndDateMonth() {
         return endDateMonth;
     }
 
-    public void setEndDateMonth(int endDateMonth) {
+    public void setEndDateMonth(String endDateMonth) {
         this.endDateMonth = endDateMonth;
     }
 
-    public int getStartDateYear() {
+    public String getStartDateYear() {
         return startDateYear;
     }
 
-    public void setStartDateYear(int startDateYear) {
+    public void setStartDateYear(String startDateYear) {
         this.startDateYear = startDateYear;
     }
 
-    public int getEndDateYear() {
+    public String getEndDateYear() {
         return endDateYear;
     }
 
-    public void setEndDateYear(int endDateYear) {
+    public void setEndDateYear(String endDateYear) {
         this.endDateYear = endDateYear;
     }
+
+
 
     public String getCurrency() {
         return currency;
