@@ -1,3 +1,11 @@
+import org.w3c.dom.Document;
+import org.w3c.dom.NodeList;
+import org.xml.sax.SAXException;
+
+import javax.xml.parsers.ParserConfigurationException;
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.URL;
 import java.util.Scanner;
 
 /**
@@ -6,7 +14,7 @@ import java.util.Scanner;
 public class MainClass {
 
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException, ParserConfigurationException, SAXException {
         DataFromUser dfu = new DataFromUser();
         System.out.println("Witaj");
 
@@ -65,7 +73,13 @@ public class MainClass {
             }
         }
 
-        Utils.getCurrencyValuesFromNBP(currency,dfu.getStartDateYear(),dfu.getStartDateMonth(),dfu.getStartDateDay(),dfu.getEndDateYear(),dfu.getEndDateMonth(),dfu.getEndDateDay());
+        URL url = Utils.getUrl(currency,dfu.getStartDateYear(),dfu.getStartDateMonth(),dfu.getStartDateDay(),dfu.getEndDateYear(),dfu.getEndDateMonth(),dfu.getEndDateDay());
+        InputStream is = Utils.getInpusStream(url);
+        Document doc = Utils.parseDocument(is);
+        NodeList cenakupna = Utils.getNodetList(doc , "Bid");
+        NodeList cenaSprzedazy = Utils.getNodetList(doc, "Ask");
+        Utils.getValues(cenakupna,cenaSprzedazy);
+
 
     }
 }
