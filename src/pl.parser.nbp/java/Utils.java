@@ -47,16 +47,27 @@ public class Utils {
     }
 
     public static void getValues(NodeList buyPrices, NodeList sellPrices) {
-        float avverageBuyPrice = 0 , avverageSellPrice= 0;
+        double avverageBuyPrice = 0 , avverageSellPrice= 0, buyStandardDeviation =0 , sellStandardDeviation = 0;
         for (int i=0 ; i< buyPrices.getLength(); i++){
-            avverageBuyPrice += Float.parseFloat(buyPrices.item(i).getTextContent());
-            avverageSellPrice += Float.parseFloat(sellPrices.item(i).getTextContent());
+            avverageBuyPrice += Double.parseDouble(buyPrices.item(i).getTextContent());
+            avverageSellPrice += Double.parseDouble(sellPrices.item(i).getTextContent());
 
         }
         avverageBuyPrice/=buyPrices.getLength();
         avverageSellPrice/=buyPrices.getLength();
+
+        for (int i=0 ; i< buyPrices.getLength(); i++) {
+            buyStandardDeviation += Math.pow((Double.parseDouble(buyPrices.item(i).getTextContent()))-avverageBuyPrice,2);
+            sellStandardDeviation += Math.pow(Double.parseDouble(sellPrices.item(i).getTextContent())-avverageSellPrice,2);
+        }
+
+        buyStandardDeviation = Math.sqrt(buyStandardDeviation/buyPrices.getLength());
+        sellStandardDeviation = Math.sqrt(sellStandardDeviation/sellPrices.getLength());
+
         System.out.println("Srednia cena kupna: " + avverageBuyPrice);
+        System.out.println("Odchylenie standardowe dla kupna to: " + buyStandardDeviation);
         System.out.println("Srednia cena sprzedazy: " + avverageSellPrice);
+        System.out.println("Odchylenie standardowe dla sprzedazyto : " + sellStandardDeviation);
     }
 
 
